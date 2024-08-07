@@ -1,0 +1,14 @@
+{
+  "name": "projetonodeuba",
+  "version": "1.0.0",
+  "description": "Primeiro projeto Node da disciplina de Integração de Dados do Curso Técnico Desenvolvimento de Sistemas Ubá",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodolfo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
