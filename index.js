@@ -1,18 +1,21 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const router = express.Router();
+const routesAdmin = require('./routers/routersAdmin');
 
-router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'))
-});
+const {engine} = require("express-handlebars");
 
-router.get('/about', function(req, res) {
-    res.sendFile(path.join(__dirname + '/about.html'))
-});
+app.engine('handlebars', engine({
+    defaultLayout: 'main',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true
+    }
+}))
 
-app.use('/', router);
-app.use('/about', router);
+app.set('view engine', 'handlebars');
+
+app.use('/', routesAdmin);
 
 app.listen(process.env.port || 3000);
 console.log('servidor rodando');
